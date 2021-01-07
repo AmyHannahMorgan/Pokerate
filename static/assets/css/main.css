@@ -68,9 +68,10 @@ h1, h2, h3, h4, h5, h6 {
 .matchupSelector {
     display: flex;
     flex-direction: column;
+    width: 60vw;
     max-width: 100%;
     /* height: calc(calc(100vh - 12px) / 2); */
-    max-height: calc(calc(calc(100vh - 12px) / 2) - 2em - 12px);
+    max-height: calc(calc(calc(100vh - 12px) * 0.45) - 2em - 12px);
 
     padding: 0;
     border: none;
