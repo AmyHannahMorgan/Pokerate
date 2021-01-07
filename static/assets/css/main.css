@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kufam&family=Ubuntu&display=swap');
+
 /* tags */
 body {
     margin: 0;
@@ -13,6 +15,8 @@ body {
     --highlight-color-2: #3066BE;
     --accent-color-1: #FAF33E;
     --accent-color-2: #CA4000;
+
+    font-family: 'Ubuntu', sans-serif;
 }
 
 header {
@@ -38,6 +42,10 @@ main {
     min-height: calc(100vh - 12px);
 
     margin: 6px
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Kufam', cursive;
 }
 /* classes */
 .matchupContainer {
