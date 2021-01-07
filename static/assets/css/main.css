@@ -65,14 +65,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-color);
 }
 
-.matchupContenderContainer:first-child > .matchupSelector {
-    background-color: var(--highlight-color-1);
-}
-
-.matchupContenderContainer:last-child > .matchupSelector {
-    background-color: var(--highlight-color-2);
-}
-
 .matchupSelector {
     display: flex;
     flex-direction: column;
@@ -92,5 +84,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* IDs */
+#contender1 {
+    background-color: var(--highlight-color-1);
+}
+
+#contender2 {
+    background-color: var(--highlight-color-2);
+}
 
 /* media */
