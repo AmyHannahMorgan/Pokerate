@@ -36,8 +36,52 @@ main {
     width: 100vw;
     max-width: 100%;
     min-height: calc(100vh - 12px);
+
+    margin: 6px
 }
 /* classes */
+.matchupContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    max-width: 100%;
+    max-height: calc(100vh - 12px);
+}
+
+.matchupContainer > h1 {
+    font-size: 2em;
+    margin: 6px;
+
+    color: var(--text-color);
+}
+
+.matchupContenderContainer:first-child > .matchupSelector {
+    background-color: var(--highlight-color-1);
+}
+
+.matchupContenderContainer:last-child > .matchupSelector {
+    background-color: var(--highlight-color-2);
+}
+
+.matchupSelector {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    /* height: calc(calc(100vh - 12px) / 2); */
+    max-height: calc(calc(calc(100vh - 12px) / 2) - 2em - 12px);
+
+    padding: 0;
+    border: none;
+
+    color: var(--bg-color);
+}
+
+.matchupSelector > img {
+    object-fit: contain;
+    height: calc(calc(calc(calc(100vh - 12px) / 2) - 2em - 12px) * 0.70);
+}
 
 /* IDs */
 
