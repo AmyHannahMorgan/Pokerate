@@ -2,12 +2,40 @@
 body {
     margin: 0;
 
+    background-image: url('/assets/images/background.png');
+    background-clip: content-box;
+
+    max-width: 100%;
+
     --bg-color: #2F2F2F;
     --text-color: #A5A5A5;
     --highlight-color-1: #D64933;
     --highlight-color-2: #3066BE;
     --accent-color-1: #FAF33E;
     --accent-color-2: #CA4000;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    max-width: 100%;
+
+    background-color: var(--bg-color);
+}
+
+header > a > img {
+    object-fit: contain;
+    height: 2em;
+    margin: 6px;
+}
+
+main {
+    width: 100vw;
+    max-width: 100%;
+    min-height: calc(100vh - 12px);
 }
 /* classes */
 
