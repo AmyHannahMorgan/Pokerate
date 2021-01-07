@@ -15,6 +15,7 @@ class MatchupMaker {
         fetch(`/api/rate/?win=${this.contenders[winner].mon.id}&loss=${this.contenders[loser].mon.id}`, {
             'method': 'post'
         }).then(r => {
+            console.log(r);
             return fetch('/api/match').then(r => r.json())
         }).then(json => {
             this.contenders[0].update(json[0]);
@@ -29,14 +30,14 @@ class Contender {
         this.element = element;
         this.element.querySelector('img').src = this.mon.pic;
         this.element.querySelector('img').alt = this.mon.name;
-        this.element.querySelector('h1').innerText = this.mon.name;
+        this.element.querySelector('h2').innerText = this.mon.name;
     }
 
     update(mon) {
         this.mon = mon;
         this.element.querySelector('img').src = this.mon.pic;
         this.element.querySelector('img').alt = this.mon.name;
-        this.element.querySelector('h1').innerText = this.mon.name;
+        this.element.querySelector('h2').innerText = this.mon.name;
     }
 }
 
