@@ -9,6 +9,8 @@ const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('data.json');
 const db = low(adapter);
 
+let pastMons = [];
+
 app.use(express.static('./static'));
 
 app.post('/api/rate', (req, res) => {
@@ -34,6 +36,29 @@ app.get('/api/check', (req, res) => {
         if(mon) res.send(mon)
         else res.sendStatus(404);
     }
+});
+
+app.get('/api/match', (req, res) => {
+    let mons = [getRandomMon(), getRandomMon()];
+    console.log(mons);
+    res.send(mons);
 })
 
 app.listen(port);
+
+function getRandomMon() {
+    let monID = RNGInclusive(0, db.get('mons').value().length);
+
+    if(pastMons.find(element => element === monID)) {
+        return getRandomMon()
+    }
+    else {
+        if(pastMons.length === 100) pastMons.shift();
+        pastMons.push(monID);
+        return db.get('mons').find( {'id': monID} ).value();
+    }
+}
+
+function RNGInclusive(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
