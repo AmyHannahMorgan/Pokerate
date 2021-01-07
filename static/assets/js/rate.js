@@ -12,6 +12,8 @@ class MatchupMaker {
     }
 
     win(winner, loser) {
+        this.contenders[0].hide();
+        this.contenders[1].hide();
         fetch(`/api/rate/?win=${this.contenders[winner].mon.id}&loss=${this.contenders[loser].mon.id}`, {
             'method': 'post'
         }).then(r => {
@@ -28,16 +30,30 @@ class Contender {
     constructor(initMon, element) {
         this.mon = initMon;
         this.element = element;
-        this.element.querySelector('img').src = this.mon.pic;
+        this.image = new Image();
+        this.image.src = this.mon.pic
+        this.image.addEventListener('load', e => {
+            this.display()
+        });
         this.element.querySelector('img').alt = this.mon.name;
         this.element.querySelector('h2').innerText = this.mon.name;
     }
 
     update(mon) {
         this.mon = mon;
-        this.element.querySelector('img').src = this.mon.pic;
+        this.image.src = this.mon.pic
         this.element.querySelector('img').alt = this.mon.name;
         this.element.querySelector('h2').innerText = this.mon.name;
+    }
+
+    display() {
+        console.log(this);
+        this.element.querySelector('img').src = this.mon.pic;
+        this.element.classList.remove('hide');
+    }
+
+    hide() {
+        this.element.classList.add('hide');
     }
 }
 

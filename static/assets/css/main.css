@@ -77,6 +77,16 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
 
     color: var(--bg-color);
+
+    transition: transform 0.25s ease;
+}
+
+.matchupSelector.hide:first-child {
+    transform: translateX(100vw);
+}
+
+.matchupSelector.hide:last-child {
+    transform: translateX(-100vw);
 }
 
 .matchupSelector > img {
