@@ -44,6 +44,25 @@ main {
     margin: 6px
 }
 
+footer {
+    width: 100vw;
+    max-width: 100%;
+
+    padding: 6px 0px;
+
+    background-color: var(--text-color);
+
+    color: var(--bg-color);
+}
+
+footer > * {
+    margin: 6px;
+}
+
+footer > p {
+    text-align: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Kufam', cursive;
 }
