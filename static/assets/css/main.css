@@ -148,12 +148,13 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: flex-end;
 
     flex-basis: 100%;
 }
 
 .top3Container > .leaderboardObject:first-child {
-    width: 30vw
+    flex-grow: 2;
 }
 
 .top3Container > .leaderboardObject:first-child::before {
@@ -161,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top3Container > .leaderboardObject {
-    width: 26.25vw;
+    flex-grow: 1.5;
 }
 
 .top3Container > .leaderboardObject::before {
@@ -169,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top3Container > .leaderboardObject:last-child {
-    width: 22.5vw;
+    flex-grow: 1;
 }
 
 .top3Container > .leaderboardObject:last-child::before {
