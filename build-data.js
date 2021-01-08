@@ -12,7 +12,7 @@ fs.open('./data.json', 'wx').then( async file => {
             console.log(species.varieties[ii].pokemon);
             console.log(species.varieties[ii].pokemon.url.match(idRegexp)[0]);
             let id = parseInt(species.varieties[ii].pokemon.url.match(idRegexp)[0]);
-            console.log(`id: ${id} | name: ${species.varieties[ii].pokemon.name}`);
+            console.log(`id: ${id} | name: ${formatName(species.varieties[ii].pokemon.name)}`);
             ids.push();
         }
     }
@@ -40,11 +40,20 @@ async function getMon(id, output) {
     
     let mon = {
         'id': id,
-        'name': data.data.name,
+        'name': formatName(data.data.name),
         'pic': data.data.sprites.other['official-artwork'].front_default,
         'wins': 0,
         'losses': 0,
         'ratio': 0
     };
     return mon;
+}
+
+function formatName(name) {
+    let split = name.split('-', 2);
+    if(split.length > 1) {
+        split[1].split('-');
+        return `${split[0]} (${typeof split[1] == 'string' ? split[1] : split[1].join(' ')})`;
+    }
+    else return name
 }
