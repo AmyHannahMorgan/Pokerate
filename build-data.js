@@ -30,7 +30,8 @@ async function getMon(id, output) {
         'name': data.data.name,
         'pic': data.data.sprites.other['official-artwork'].front_default,
         'wins': 0,
-        'losses': 0
+        'losses': 0,
+        'ratio': 0
     };
     return mon;
 }
