@@ -105,6 +105,8 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 
     margin: auto;
+
+    color: var(--text-color);
 }
 
 .leaderboardObject {
@@ -132,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 
     background-color: var(--bg-color);
-    opacity: 0.5;
+    opacity: 0.75;
 }
 
 .leaderboardObject > img {
@@ -151,6 +153,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-end;
 
     flex-basis: 100%;
+
+    color: var(--bg-color);
 }
 
 .top3Container > .leaderboardObject:first-child {
