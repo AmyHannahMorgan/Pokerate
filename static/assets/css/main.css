@@ -94,6 +94,88 @@ h1, h2, h3, h4, h5, h6 {
     height: calc(calc(calc(calc(100vh - 12px) / 2) - 2em - 12px) * 0.70);
 }
 
+.leaderboardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    width: 85vw;
+    max-width: 85vw;
+    overflow: hidden;
+
+    margin: auto;
+}
+
+.leaderboardObject {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 20vw;
+    margin: 3px;
+    padding: 3px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.leaderboardObject::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--bg-color);
+    opacity: 0.5;
+}
+
+.leaderboardObject > img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.leaderboardObject > * {
+    margin: 3px;
+}
+
+.top3Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    flex-basis: 100%;
+}
+
+.top3Container > .leaderboardObject:first-child {
+    width: 30vw
+}
+
+.top3Container > .leaderboardObject:first-child::before {
+    background-color: var(--accent-color-1);
+}
+
+.top3Container > .leaderboardObject {
+    width: 26.25vw;
+}
+
+.top3Container > .leaderboardObject::before {
+    background-color: var(--text-color);
+}
+
+.top3Container > .leaderboardObject:last-child {
+    width: 22.5vw;
+}
+
+.top3Container > .leaderboardObject:last-child::before {
+    background-color: var(--accent-color-2);
+}
+
 /* IDs */
 #contender1 {
     background-color: var(--highlight-color-1);
