@@ -22,6 +22,9 @@ fs.open('./data.json', 'wx').then( async file => {
 .then(file => {
     console.log(`data file written`);
 })
+.catch(error => {
+    console.log('data file already exists!!!');
+})
 
 async function getMon(id, output) {
     let data
