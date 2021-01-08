@@ -38,7 +38,7 @@ async function getMon(id, output) {
     let mon = {
         'id': id,
         'name': formatName(data.data.name),
-        'pic': data.data.sprites.other['official-artwork'].front_default || data.data.sprites.front_default,
+        'pic': data.data.sprites.other['official-artwork'].front_default || data.data.sprites.front_default || '/assets/images/poke-placeholder.png',
         'wins': 0,
         'losses': 0,
         'ratio': 0
