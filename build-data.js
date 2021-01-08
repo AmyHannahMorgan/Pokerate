@@ -9,10 +9,7 @@ fs.open('./data.json', 'wx').then( async file => {
     for(let i = 0; i < 898; i++) {
         let species = await (await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${i+1}/`)).data;
         for(let ii = 0; ii < species.varieties.length; ii++) {
-            console.log(species.varieties[ii].pokemon);
-            console.log(species.varieties[ii].pokemon.url.match(idRegexp)[0]);
             let id = parseInt(species.varieties[ii].pokemon.url.match(idRegexp)[0]);
-            console.log(`id: ${id} | name: ${formatName(species.varieties[ii].pokemon.name)}`);
             ids.push();
         }
     }
