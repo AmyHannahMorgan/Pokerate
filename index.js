@@ -65,15 +65,15 @@ app.get('/api/leaderboard', (req, res) => {
 app.listen(port);
 
 function getRandomMon() {
-    let monID = RNGInclusive(0, db.get('mons').value().length);
+    let monPos = RNGInclusive(0, db.get('mons').value().length - 1);
 
-    if(pastMons.find(element => element === monID)) {
+    if(pastMons.find(element => element === monPos)) {
         return getRandomMon()
     }
     else {
         if(pastMons.length === 100) pastMons.shift();
-        pastMons.push(monID);
-        return db.get('mons').find( {'id': monID} ).value();
+        pastMons.push(monPos);
+        return db.get(`mons[${monPos}]`).value();
     }
 }
 
