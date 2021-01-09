@@ -76,7 +76,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     width: 100vw;
     max-width: 100%;
-    max-height: calc(100vh - 12px);
+    height: 100vh;
+    max-height: calc(100vh - 12px - 2em - 12px);
 }
 
 .matchupContainer > h1 {
@@ -103,11 +104,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .matchupSelector.hide:first-child {
-    transform: translateX(100vw);
+    transform: translateX(-100vw);
 }
 
 .matchupSelector.hide:last-child {
-    transform: translateX(-100vw);
+    transform: translateX(100vw);
 }
 
 .matchupSelector > img {
@@ -212,3 +213,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* media */
+@media only screen and (orientation: landscape) {
+    .matchupContainer {
+        flex-direction: row;
+        align-items: center;
+        max-width: calc(100% - 12px);
+    }
+
+    .matchupSelector {
+        width: 35vw;
+        max-width: 35vw;
+        height: auto;
+        max-height: 100%;
+    }
+}
