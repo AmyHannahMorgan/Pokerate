@@ -23,7 +23,8 @@ header::before {
     height: 100%;
 
     background-image: url('/assets/images/landing-bg-portrait.png');
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
     filter: blur(5px);
 }
 
