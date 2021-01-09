@@ -8,7 +8,7 @@ window.onload = () => {
             console.log(json);
             currElement.innerHTML = currElement.innerHTML.replace('{{pic}}', json[i].pic);
             currElement.innerHTML = currElement.innerHTML.replace(/{{name}}/g, json[i].name, );
-            currElement.innerHTML = currElement.innerHTML.replace('{{ratio}}', `${json[i].ratio * 100}%`);
+            currElement.innerHTML = currElement.innerHTML.replace('{{ratio}}', `${(json[i].ratio * 100).toFixed(2)}%`);
             console.log(currElement.innerHTML);
 
             if(i < 3) document.querySelector('.top3Container').appendChild(currElement);
