@@ -90,6 +90,8 @@ h1, h2, h3, h4, h5, h6 {
 .matchupSelector {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 60vw;
     max-width: 100%;
     /* height: calc(calc(100vh - 12px) / 2); */
