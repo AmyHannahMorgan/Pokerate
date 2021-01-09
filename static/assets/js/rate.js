@@ -21,7 +21,7 @@ class MatchupMaker {
         }).then(r => {
             console.log(r);
             this.matchup++
-            if(this.matchup > this.matchups.length) return this.matchups
+            if(this.matchup < this.matchups.length) return this.matchups
             else{
                 this.matchup = 0;
                 return fetch('/api/match').then(r => r.json())  
