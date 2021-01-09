@@ -50,7 +50,10 @@ app.get('/api/check', (req, res) => {
 });
 
 app.get('/api/match', (req, res) => {
-    let mons = [getRandomMon(), getRandomMon()];
+    let mons = [];
+    for(let i = 0; i < 40; i++) {
+        mons.push([getRandomMon(), getRandomMon()]);
+    }
     console.log(mons);
     res.send(mons);
 });

@@ -1,6 +1,8 @@
 class MatchupMaker {
-    constructor(contenders) {
+    constructor(contenders, matchups) {
         this.contenders = contenders;
+        this.matchups = matchups;
+        this.matchup = 0;
 
         this.contenders[0].element.addEventListener('click', e => {
             this.win(0, 1);
@@ -18,10 +20,15 @@ class MatchupMaker {
             'method': 'post'
         }).then(r => {
             console.log(r);
-            return fetch('/api/match').then(r => r.json())
+            this.matchup++
+            if(this.matchup > this.matchups.length) return this.matchups
+            else{
+                this.matchup = 0;
+                return fetch('/api/match').then(r => r.json())  
+            } 
         }).then(json => {
-            this.contenders[0].update(json[0]);
-            this.contenders[1].update(json[1]);
+            this.contenders[0].update(json[this.matchup][0]);
+            this.contenders[1].update(json[this.matchup][1]);
         })
     }
 }
@@ -61,7 +68,7 @@ let maker;
 
 window.onload = () => {
     fetch('/api/match').then(response => response.json()).then(json => {
-        let contenders = [new Contender(json[0], document.querySelector('#contender1')), new Contender(json[1], document.querySelector('#contender2'))];
-        maker = new MatchupMaker(contenders);
+        let contenders = [new Contender(json[0][0], document.querySelector('#contender1')), new Contender(json[0][1], document.querySelector('#contender2'))];
+        maker = new MatchupMaker(contenders, json);
     })
 }
