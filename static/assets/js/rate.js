@@ -27,6 +27,7 @@ class MatchupMaker {
                 return fetch('/api/match').then(r => r.json())  
             } 
         }).then(json => {
+            if(this.matchup === 0) this.matchups = json;
             this.contenders[0].update(json[this.matchup][0]);
             this.contenders[1].update(json[this.matchup][1]);
         })
